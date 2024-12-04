@@ -15,7 +15,12 @@
             box-sizing: border-box;
         }
 
-        /* Aseguramos que el slider ocupe todo el ancho */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Slider */
         .slider {
             position: relative;
             width: 100%;
@@ -26,7 +31,6 @@
         .slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            width: 100%;
         }
 
         .slide {
@@ -35,8 +39,9 @@
         }
 
         .presentacion {
-            width: 100%; /* Hace que las imágenes ocupen todo el ancho */
+            width: 100%;
             height: auto;
+            object-fit: cover;
         }
 
         .prev, .next {
@@ -60,6 +65,7 @@
             right: 10px;
         }
 
+        /* Footer */
         .cajacontenedora {
             text-align: center;
             padding: 20px;
@@ -84,6 +90,14 @@
                 padding: 8px;
             }
 
+            .slider {
+                max-height: 150px; /* Limitar altura en pantallas pequeñas */
+            }
+
+            .presentacion {
+                max-height: 150px;
+            }
+
             .cajacontenedora {
                 padding: 15px;
             }
@@ -93,11 +107,23 @@
             }
         }
 
-        /* Asegurando que las imágenes del slider no se deformen */
-        .presentacion {
-            object-fit: cover; /* Hace que la imagen cubra el área del slider sin distorsionarse */
-            width: 100%;
-            height: 100%;
+        @media (max-width: 480px) {
+            .prev, .next {
+                font-size: 1.2rem;
+                padding: 5px;
+            }
+
+            .slider {
+                max-height: 200px; /* Ajustar aún más para celulares pequeños */
+            }
+
+            .presentacion {
+                max-height: 100px;
+            }
+
+            .cajacontenedora a {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -125,15 +151,14 @@
 
     <footer>
       <div class="cajacontenedora">
-        <a href="https://vicente-crypto.github.io/100-VICENTE-SASTRE-ferrari.final/">Ferrari Oficial</a>
+        <a href="https://vicente-crypto.github.io/Ferrari-sitio-web-sastre/">Ferrari Oficial</a>
       </div>
     </footer>
   </main>
 
-  <script type="text/javascript">
-    const diapositivas = document.querySelectorAll('.slide');
-    let diapositivaActual = 0;
-    const tiempoTransicion = 10000; // Tiempo en milisegundos entre diapositivas
+  <script
+  type="text/javascript">
+
 
     function cambiarDiapositiva(n) {
       diapositivas[diapositivaActual].classList.remove('activa');
@@ -151,11 +176,8 @@
       cambiarDiapositiva(1);
     });
 
-    // Temporizador automático
-    setInterval(() => {
-      cambiarDiapositiva(1);
-    }, tiempoTransicion);
   </script>
 
 </body>
 </html>
+
